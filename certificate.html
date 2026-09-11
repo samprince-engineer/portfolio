@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificates | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           CERTIFICATE SECTION
+        ========================== */
+
+        .certificate-section {
+            padding: 100px 8% 60px;
+            min-height: 100vh;
+        }
+
+        .certificate-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .certificate-title p {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .certificate-title h1 {
+            color: white;
+            font-size: 45px;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           CATEGORY BUTTONS
+        ========================== */
+
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 25px;
+            border: 1px solid #d4af37;
+            background: transparent;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #d4af37;
+            color: #000;
+        }
+
+
+        /* =========================
+           CERTIFICATE CONTENT
+        ========================== */
+
+        .certificate-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .certificate-content.active {
+            display: block;
+        }
+
+        .certificate-content h2 {
+            text-align: center;
+            color: #d4af37;
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           CERTIFICATE GRID
+        ========================== */
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background: #0b1118;
+            padding: 12px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+
+        .certificate-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            display: block;
+            border-radius: 10px;
+            background: #ffffff;
+        }
+
+
+        /* =========================
+           POPUP IMAGE
+        ========================== */
+
+        .image-popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .image-popup img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================== */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .certificate-section {
+                padding: 90px 5% 40px;
+            }
+
+            .certificate-title h1 {
+                font-size: 35px;
+            }
+
+            .certificate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-card img {
+                height: 350px;
+            }
+
+            .close-popup {
+                right: 20px;
+                top: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header>
+    <nav class="navbar">
+
+        <!-- Logo + Name -->
+        <div class="brand">
+
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.jpg.jpeg" alt="Sam Prince Logo">
+                </a>
+            </div>
+               <div class="brand-text">
+        <h3>SAM PRINCE F</h3>
+        <span>MECHANICAL ENGINEER</span>
+    </div>
+
+
+           
+        </div>
+
+        <!-- Navigation -->
+        <ul class="nav-links">
+
+            <li>
+                <a class="active" href="index.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="about.html">ABOUT</a>
+            </li>
+
+            <li>
+                <a href="projects.html">PROJECTS</a>
+            </li>
+
+            <li>
+                <a href="skills.html">SKILLS</a>
+            </li>
+
+            <li>
+                <a href="certificate.html">CERTIFICATE</a>
+            </li>
+            <li>
+                <a href="contact.html">CONTACT</a>
+            </li>
+
+
+        </ul>
+
+    </nav>
+</header>
+
+    <!-- =========================
+         CERTIFICATE SECTION
+    ========================== -->
+
+    <section class="certificate-section">
+
+
+        <!-- TITLE -->
+
+        <div class="certificate-title">
+
+            <p>MY ACHIEVEMENTS</p>
+
+            <h1>Certificates</h1>
+
+        </div>
+
+
+        <!-- =========================
+             CATEGORY BUTTONS
+        ========================== -->
+
+        <div class="category-buttons">
+
+            <button
+                class="category-btn active"
+                onclick="showCertificates('sports', this)">
+                🏆 Sports
+            </button>
+
+
+            <button
+                class="category-btn"
+                onclick="showCertificates('internship', this)">
+                💼 Internship
+            </button>
+
+
+            <button
+                class="category-btn"
+                onclick="showCertificates('study', this)">
+                🎓 Study
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             SPORTS
+        ========================== -->
+
+        <div id="sports" class="certificate-content active">
+
+            <h2>Sports Certificates</h2>
+
+            <div class="certificate-grid">
+
+                <div class="certificate-card"
+                     onclick="openImage('sp.jpg.jpeg')">
+
+                    <img src="sp3.jpg.jpeg"
+                         alt="Sports Certificate 1">
+
+                </div>
+
+
+                <div class="certificate-card"
+                     onclick="openImage('sp2.jpg.jpeg')">
+
+                    <img src="certificates/c4.jpg.jpeg"
+                         alt="Sports Certificate 2">
+
+                </div>
+
+
+                <div class="certificate-card"
+                     onclick="openImage('sp3.jpg.jpeg')">
+
+                    <img src="sp4.jpg.jpeg"
+                         alt="Sports Certificate 3">
+
+                </div>
+
+
+                <div class="certificate-card"
+                     onclick="openImage('sp4.jpg.jpeg')">
+
+                    <img src="sp.jpg.jpeg"
+                         alt="Sports Certificate 4">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             INTERNSHIP
+        ========================== -->
+
+        <div id="internship" class="certificate-content">
+
+            <h2>Internship Certificates</h2>
+
+            <div class="certificate-grid">
+
+                <div class="certificate-card"
+                     onclick="openImage('intern.jpg.jpeg')">
+
+                    <img src="intern.jpg.jpeg"
+                         alt="Internship Certificate 1">
+
+                </div>
+
+
+                <div class="certificate-card"
+                     onclick="openImage('intern2.jpg.jpeg')">
+
+                    <img src="certificates/intern2.jpg.jpeg"
+                         alt="Internship Certificate 2">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             STUDY
+        ========================== -->
+
+        <div id="study" class="certificate-content">
+
+            <h2>Study Certificates</h2>
+
+            <div class="certificate-grid">
+
+
+                <!-- STUDY CERTIFICATE 1 -->
+
+                <div class="certificate-card"
+                     onclick="openImage('study1.jpg.jpeg')">
+
+                    <img src="study.jpg.jpeg"
+                         alt="Study Certificate 1">
+
+                </div>
+
+
+                <!-- STUDY CERTIFICATE 2 -->
+
+                <div class="certificate-card"
+                     onclick="openImage('study2.jpg.jpeg')">
+
+                    <img src="study2.jpg.jpeg"
+                         alt="Study Certificate 2">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         IMAGE POPUP
+    ========================== -->
+
+    <div class="image-popup" id="imagePopup">
+
+        <span class="close-popup"
+              onclick="closeImage()">
+            &times;
+        </span>
+
+        <img id="popupImage" src="" alt="Certificate">
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function showCertificates(category, button) {
+
+            /* Hide all sections */
+
+            const sections =
+                document.querySelectorAll(".certificate-content");
+
+            sections.forEach(function(section) {
+
+                section.classList.remove("active");
+
+            });
+
+
+            /* Remove active from buttons */
+
+            const buttons =
+                document.querySelectorAll(".category-btn");
+
+            buttons.forEach(function(btn) {
+
+                btn.classList.remove("active");
+
+            });
+
+
+            /* Show selected category */
+
+            document
+                .getElementById(category)
+                .classList.add("active");
+
+
+            /* Activate selected button */
+
+            button.classList.add("active");
+
+        }
+
+
+        /* =========================
+           OPEN IMAGE
+        ========================== */
+
+        function openImage(imagePath) {
+
+            document.getElementById("popupImage").src = imagePath;
+
+            document.getElementById("imagePopup").style.display = "flex";
+
+        }
+
+
+        /* =========================
+           CLOSE IMAGE
+        ========================== */
+
+        function closeImage() {
+
+            document.getElementById("imagePopup").style.display = "none";
+
+        }
+
+
+        /* Close popup when clicking outside image */
+
+        document
+            .getElementById("imagePopup")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+
+                    closeImage();
+
+                }
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>
